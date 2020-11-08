@@ -1,10 +1,12 @@
-/* -- basic reset -- */
-
+// variables
 $color-primary: #7ed56f;
 $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
-$color-grey-white: #fff;
+$color-white: #fff;
+$color-black: #000;
+
+// basic reset
 
 *,
 *::after,
@@ -18,7 +20,7 @@ html {
   font-size: 62.5%;
 }
 
-/* -- set font and body padding -- */
+// set font and body padding
 
 body {
   font-family: 'Lato', sans-serif;
@@ -30,7 +32,7 @@ body {
   box-sizing: border-box;
 }
 
-/* -- header --*/
+// header
 
 .header {
   height: 95vh;
@@ -44,49 +46,49 @@ body {
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
-  color: $color-grey-white;
+  color: $color-white;
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation: moveInLeft 1s ease-out;
-  animation-fill-mode: backwards;
-}
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+    animation-fill-mode: backwards;
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-  animation-fill-mode: backwards;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    animation-fill-mode: backwards;
+  }
 }
 
 @keyframes moveInLeft {
@@ -133,56 +135,60 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-}
+// Button
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+.btn {
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn--white {
-  background-color: $color-grey-white;
-  color: $color-grey-dark;
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn::after {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-.btn--white::after {
-  background-color: $color-grey-white;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
